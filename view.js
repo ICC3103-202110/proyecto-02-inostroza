@@ -43,10 +43,24 @@ function getTable(model){
         temporalTable = newlist.slice(0)
         newlist = nothing.slice(0)
     }
-
     else if(choice==="Update city"){
-        console.log("Update or delete")
+        nombre = location
+        newlist = []
         b = randomTemperatureFull();
+        size = temporalTable.length
+        for(i=0;i<size;i++){
+            if(String(temporalTable[i].Name) === nombre){
+                temporalTable[i].Temperature = b[0]
+                temporalTable[i].Max = b[1]
+                temporalTable[i].Min = b[2]
+                newlist.push(temporalTable[i])
+            }
+            else{
+                newlist.push(temporalTable[i])
+            }
+        }
+        temporalTable = newlist.slice(0)
+        newlist = nothing.slice(0)
     }
     return temporalTable
 }
