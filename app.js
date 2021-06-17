@@ -12,7 +12,7 @@ async function app(state, update, view){
         printTable(table)
         // FORM (Ask user input)
         const {choice} = await listForm(model)
-        const {location} = await inputForm(model)
+        const {location} = await inputForm(model,choice)
         //console.log(choice,location)
         const updatedModel = update(choice, location, model)
         //console.log(model)

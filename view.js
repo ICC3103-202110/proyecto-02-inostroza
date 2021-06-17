@@ -66,9 +66,15 @@ function getTable(model){
 }
 
 // INPUT FORM
-function inputForm(model){
+function inputForm(model,choice){
     const {location} = model
     const message = 'Location?'
+    size = temporalTable.length
+    if(size === 0) 
+    {
+        throw new Error("\u001b[1;31mUnable to delete or update from empty list \u001b[1;34mPLEASE RESTART\u001b[0m")
+    }
+    else if(choice==="Add city"){
     return inquirer.prompt([
         {
             name: 'location',
@@ -85,6 +91,24 @@ function inputForm(model){
             }
         }
     ])
+    }
+    else{
+        const {location} = model
+        const message = 'Select location:'
+        namelist = nothing.slice(0)
+        for(i=0;i<size;i++){
+        namelist.push(String(temporalTable[i].Name))
+        }
+        const choices = namelist
+        return inquirer.prompt([{
+            name: 'location',
+            type: 'list',
+            message: message,
+            default: location,
+            choices: choices
+        }
+        ])   
+    }
 }
 
 // LIST FORM INITIAL
@@ -101,6 +125,7 @@ function listForm(model){
     }
     ])
 }
+
 
 // Get actual console view
 function view(model){
