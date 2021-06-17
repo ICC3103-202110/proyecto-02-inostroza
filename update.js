@@ -9,15 +9,12 @@ function increase(counter){
     return counter + 1
 }
 
-function decrease(counter){
-    return counter - 1
-}
+
 
 function update(input, model){
     const {counter} = model
     const newCounter = FUNCTIONS[input](counter)
 */
-
 function randomTemperatureFull(){
     let temperatura1 = Math.random() * 35;
     let temperatura2 = parseFloat(temperatura1.toFixed(2));
