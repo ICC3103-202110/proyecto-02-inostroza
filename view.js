@@ -40,7 +40,6 @@ function getTable(model){
         size = temporalTable.length
         for(i=0;i<size;i++){
         if(String(temporalTable[i].Name) === nombre){
-            console.log(temporalTable[i].Name,"was deleted")
         }
         else{
             newlist.push(temporalTable[i])

@@ -13,5 +13,3 @@ initModel = {
 module.exports = {
     initModel
 }
-
-// REEMPLAZAR LOCATIONS CON UNA LISTA DE LOCALIZACIONES

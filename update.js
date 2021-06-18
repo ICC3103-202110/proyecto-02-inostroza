@@ -1,5 +1,3 @@
-
-
 function randomTemperatureFull(){
     let temperatura1 = Math.random() * 35;
     let temperatura2 = parseFloat(temperatura1.toFixed(2));
