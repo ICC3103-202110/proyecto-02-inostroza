@@ -1,3 +1,5 @@
+
+
 function randomTemperatureFull(){
     let temperatura1 = Math.random() * 35;
     let temperatura2 = parseFloat(temperatura1.toFixed(2));
@@ -6,14 +8,8 @@ function randomTemperatureFull(){
     return [temperatura2, maxtemperatura, mintemperatura]
 }
 
-function update(choice2, location2, model){
-
+function update(choice2, location2, temp2, max2, min2, model){
     const {choice, location, temp, max, min} = model
-    console.log(choice,location)
-    nuevatemp = randomTemperatureFull()
-    temp2 = nuevatemp[0]
-    max2 = nuevatemp[1]
-    min2 = nuevatemp[2]
     return {
         ...model,
         choice: choice2,

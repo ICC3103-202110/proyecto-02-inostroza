@@ -2,6 +2,7 @@ const figlet = require('figlet')
 const chalk = require('chalk')
 const inquirer = require('inquirer')
 const {randomTemperatureFull} = require('./update')
+const axios = require('axios')
 temporalTable = []
 nothing = []
 //Title
@@ -25,7 +26,12 @@ function getTable(model){
     }
 
     else if(choice==="Add city"){
+        if(typeof temp === "undefined"){
+        temporalTable.push({Name: location,Temperature: "No data",Max: "No data",Min: "No data"})
+        }
+        else{
         temporalTable.push({Name: location,Temperature: temp,Max: max,Min: min})
+        }
     }
 
     else if(choice==="Delete city"){
@@ -80,7 +86,7 @@ function inputForm(model,choice){
             name: 'location',
             type: 'input',
             message: message,
-            default: "Santiago",
+            default: "Santiago, CL",
             validate: function(value){
                 if (typeof value === 'string'){
                     return true
